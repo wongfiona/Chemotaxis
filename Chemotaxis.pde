@@ -15,7 +15,7 @@ Bacteria [] colony;
  void draw()   
  {    
    //move and show the bacteria   
-   background(0);
+   background(200,200,200);
    for (int i = 0; i < colony.length; i++)
    {
     colony[i].move();
@@ -30,10 +30,10 @@ Bacteria [] colony;
    {
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
-    myR = (int)(Math.random()*500);
-    myG = (int)(Math.random()*500);
-    myB = (int)(Math.random()*500);
-    myColor = color (myR, myG, myB);
+    myR = (int)(Math.random()*37)+118;
+    myG = (int)(Math.random()*58)+197;
+    myB = (int)(Math.random()*60)+195;
+    myColor = color (myR*2, myG, myB);
    }
 
    void move()
@@ -44,10 +44,15 @@ Bacteria [] colony;
 
    void show()
    {
-   	stroke(myColor);
-    fill(myColor, 125);
-    ellipse(myX, myY, 10, 10);
-    fill(myColor, 150);
-    ellipse(myX, myY, 20, 20);
+    noStroke();
+    fill(myColor);
+    ellipse(myX, myY, 30, 20);  //head
+    ellipse(myX-7, myY-6, 10, 30); //left ear
+    ellipse(myX+7, myY-6, 10, 30); //right ear
+    fill(0);
+    ellipse(myX-5, myY, 3, 3); //left eye
+    ellipse(myX+5, myY, 3, 3); //right eye
+    fill(228, 133, 228);
+    ellipse(myX, myY+3, 3, 2); //nose
    }
  }      
