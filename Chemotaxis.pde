@@ -4,8 +4,8 @@ Bacteria [] colony;
  void setup()   
  {     
    //initialize bacteria variables here   
-   size(500, 500);
-   colony = new Bacteria [100];
+   size(1400, 500);
+   colony = new Bacteria [240];
    for (int i = 0; i < colony.length; i++)
    {
     colony[i] = new Bacteria();
@@ -28,7 +28,7 @@ Bacteria [] colony;
    int myX, myY, myR, myG, myB, myColor;
    Bacteria()
    {
-    myX = (int)(Math.random()*500);
+    myX = (int)(Math.random()*1400);
     myY = (int)(Math.random()*500);
     myR = (int)(Math.random()*37)+118;
     myG = (int)(Math.random()*58)+197;
@@ -38,8 +38,16 @@ Bacteria [] colony;
 
    void move()
    {
-    myX = myX + (int)(Math.random()*3)-1;
-    myY = myY + (int)(Math.random()*3)-1;
+      /*if (myX < mouseX && myY < mouseY)
+      {*/
+        myX = myX + (int)(Math.random()*3)-1;
+        myY = myY + (int)(Math.random()*3)-1;
+      /*}
+      else
+      {
+        myX = myX + (int)(Math.random()*7)-8;
+        myY = myY + (int)(Math.random()*7)-8;
+      }*/
    }
 
    void show()
@@ -54,5 +62,6 @@ Bacteria [] colony;
     ellipse(myX+5, myY, 3, 3); //right eye
     fill(228, 133, 228);
     ellipse(myX, myY+3, 3, 2); //nose
+    
    }
- }      
+ }     
