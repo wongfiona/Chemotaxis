@@ -23,6 +23,15 @@ Bacteria [] colony;
    }
  }  
 
+ void carrot(){
+ 	fill(250, 185, 110);
+	triangle(100, 100, 110, 150, 120, 100); //carrot
+	fill(110, 250, 160);
+	ellipse(100, 90, 12, 20);
+	ellipse(110, 90, 15, 25);
+	ellipse(120, 90, 12, 20);
+ }
+
  class Bacteria    
  {      
    int myX, myY, myR, myG, myB, myColor;
@@ -62,6 +71,6 @@ Bacteria [] colony;
     ellipse(myX+5, myY, 3, 3); //right eye
     fill(228, 133, 228);
     ellipse(myX, myY+3, 3, 2); //nose
-    
-   }
+
+    }
  }     
