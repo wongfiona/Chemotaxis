@@ -5,7 +5,7 @@ Bacteria [] colony;
  {     
    //initialize bacteria variables here   
    size(1400, 500);
-   colony = new Bacteria [240];
+   colony = new Bacteria [200];
    for (int i = 0; i < colony.length; i++)
    {
     colony[i] = new Bacteria();
@@ -15,21 +15,23 @@ Bacteria [] colony;
  void draw()   
  {    
    //move and show the bacteria   
-   background(200,200,200);
+   background(200, 200, 200);
+   frameRate(20);
    for (int i = 0; i < colony.length; i++)
    {
     colony[i].move();
     colony[i].show();
    }
+   carrot();
  }  
 
  void carrot(){
  	fill(250, 185, 110);
-	triangle(100, 100, 110, 150, 120, 100); //carrot
+	triangle(mouseX, mouseY, mouseX+10, mouseY+50, mouseX+20, mouseY); //carrot
 	fill(110, 250, 160);
-	ellipse(100, 90, 12, 20);
-	ellipse(110, 90, 15, 25);
-	ellipse(120, 90, 12, 20);
+	ellipse(mouseX, mouseY-10, 12, 20);
+	ellipse(mouseX+10, mouseY-10, 15, 25);
+	ellipse(mouseX+20, mouseY-10, 12, 20);
  }
 
  class Bacteria    
@@ -47,16 +49,20 @@ Bacteria [] colony;
 
    void move()
    {
-      /*if (myX < mouseX && myY < mouseY)
-      {*/
-        myX = myX + (int)(Math.random()*3)-1;
-        myY = myY + (int)(Math.random()*3)-1;
-      /*}
-      else
-      {
-        myX = myX + (int)(Math.random()*7)-8;
-        myY = myY + (int)(Math.random()*7)-8;
-      }*/
+    if (myX < mouseX && myY < mouseY) //move right
+        myX = myX + (int)(Math.random()*7)-1;
+    else if (myX > mouseX && myY > mouseY) // move left
+    	myX = myX + (int)(Math.random()*7)-8;
+    else if (myY > mouseY)
+    	myY = myY + (int)(Math.random()*7)-5; //move up
+    else if (myY < mouseY)
+    	myY = myY + (int)(Math.random()*7)-8; //move down
+
+    /*else if (myX < mouseX && myY > mouseY) //move up
+        myY = myY + (int)(Math.random()*7)-5;
+    else
+        myY = myY + (int)(Math.random()*7)-10; //move down
+    */
    }
 
    void show()
@@ -71,6 +77,5 @@ Bacteria [] colony;
     ellipse(myX+5, myY, 3, 3); //right eye
     fill(228, 133, 228);
     ellipse(myX, myY+3, 3, 2); //nose
-
     }
  }     
