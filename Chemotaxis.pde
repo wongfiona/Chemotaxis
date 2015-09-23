@@ -5,7 +5,7 @@ Bacteria [] colony;
  {     
    //initialize bacteria variables here   
    size(1400, 500);
-   colony = new Bacteria [200];
+   colony = new Bacteria [100];
    for (int i = 0; i < colony.length; i++)
    {
     colony[i] = new Bacteria();
@@ -16,7 +16,6 @@ Bacteria [] colony;
  {    
    //move and show the bacteria   
    background(200, 200, 200);
-   frameRate(20);
    for (int i = 0; i < colony.length; i++)
    {
     colony[i].move();
@@ -49,20 +48,36 @@ Bacteria [] colony;
 
    void move()
    {
-    if (myX < mouseX && myY < mouseY) //move right
-        myX = myX + (int)(Math.random()*7)-1;
-    else if (myX > mouseX && myY > mouseY) // move left
-    	myX = myX + (int)(Math.random()*7)-8;
-    else if (myY > mouseY)
-    	myY = myY + (int)(Math.random()*7)-5; //move up
-    else if (myY < mouseY)
-    	myY = myY + (int)(Math.random()*7)-8; //move down
-
-    /*else if (myX < mouseX && myY > mouseY) //move up
-        myY = myY + (int)(Math.random()*7)-5;
+   	frameRate(20);
+   	//right and up
+    if (myX < mouseX && myY > mouseY)
+    {
+        myX = myX + (int)(Math.random()*5);
+        myY = myY - (int)(Math.random()*5);
+    }
+    //left and up
+    else if(myX > mouseX && myY > mouseY)
+    {
+    	myX = myX - (int)(Math.random()*5);
+    	myY = myY - (int)(Math.random()*5);
+    }
+    //right and down
+    else if (myX < mouseX && myY < mouseY)
+    {
+    	myX = myX + (int)(Math.random()*5);
+    	myY = myY + (int)(Math.random()*5);
+    }
+    //left and down
+    else if (myX > mouseX && myY < mouseY)
+    {
+    	myX = myX - (int)(Math.random()*5);
+    	myY = myY + (int)(Math.random()*5);
+    }
     else
-        myY = myY + (int)(Math.random()*7)-10; //move down
-    */
+    {
+    	myX = myX + (int)(Math.random()*5)-2;
+    	myY = myY + (int)(Math.random()*5)-2;
+    }
    }
 
    void show()
