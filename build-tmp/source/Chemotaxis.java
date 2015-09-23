@@ -20,7 +20,7 @@ Bacteria [] colony;
  public void setup()   
  {     
    //initialize bacteria variables here   
-   size(1400, 500);
+   size(1400, 700);
    colony = new Bacteria [100];
    for (int i = 0; i < colony.length; i++)
    {
@@ -55,7 +55,7 @@ Bacteria [] colony;
    Bacteria()
    {
     myX = (int)(Math.random()*1400);
-    myY = (int)(Math.random()*500);
+    myY = (int)(Math.random()*700);
     myR = (int)(Math.random()*37)+118;
     myG = (int)(Math.random()*58)+197;
     myB = (int)(Math.random()*60)+195;
