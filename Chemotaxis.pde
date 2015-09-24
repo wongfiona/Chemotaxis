@@ -48,9 +48,6 @@ Bacteria [] colony;
 
    void move()
    {
-   	myX += (int)(Math.random()*3)-1;
-   	myY += (int)(Math.random()*3)-1;
-
    	frameRate(20);
 	//right and up
 	if (myX < mouseX && myY > mouseY)
