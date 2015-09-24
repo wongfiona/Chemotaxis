@@ -1,7 +1,7 @@
 body {
     background-color: rgb(200,200,200);
     color: rgb(0,0,0);
-    font-family: 'Schoolbell', cursive;
+    font-family: 'Indie Flower', cursive;
     text-align: center;
 }
 
@@ -17,5 +17,5 @@ header {
 
 footer {
 	font-style: italic;
-	font-size: 90%;
+	font-size: 120%;
 }

@@ -4,7 +4,7 @@ Bacteria [] colony;
  void setup()   
  {     
    //initialize bacteria variables here   
-   size(1400, 700);
+   size(1400, 600);
    colony = new Bacteria [100];
    for (int i = 0; i < colony.length; i++)
    {
@@ -39,7 +39,7 @@ Bacteria [] colony;
    Bacteria()
    {
     myX = (int)(Math.random()*1400);
-    myY = (int)(Math.random()*700);
+    myY = (int)(Math.random()*600);
     myR = (int)(Math.random()*37)+118;
     myG = (int)(Math.random()*58)+197;
     myB = (int)(Math.random()*60)+195;
@@ -48,36 +48,46 @@ Bacteria [] colony;
 
    void move()
    {
+   	myX += (int)(Math.random()*3)-1;
+   	myY += (int)(Math.random()*3)-1;
+
    	frameRate(20);
-   	//right and up
-    if (myX < mouseX && myY > mouseY)
-    {
-        myX = myX + (int)(Math.random()*5);
-        myY = myY - (int)(Math.random()*5);
-    }
-    //left and up
-    else if(myX > mouseX && myY > mouseY)
-    {
-    	myX = myX - (int)(Math.random()*5);
-    	myY = myY - (int)(Math.random()*5);
-    }
-    //right and down
-    else if (myX < mouseX && myY < mouseY)
-    {
-    	myX = myX + (int)(Math.random()*5);
-    	myY = myY + (int)(Math.random()*5);
-    }
-    //left and down
-    else if (myX > mouseX && myY < mouseY)
-    {
-    	myX = myX - (int)(Math.random()*5);
-    	myY = myY + (int)(Math.random()*5);
-    }
-    else
-    {
-    	myX = myX + (int)(Math.random()*5)-2;
-    	myY = myY + (int)(Math.random()*5)-2;
-    }
+	//right and up
+	if (myX < mouseX && myY > mouseY)
+	{
+		myX = myX + (int)(Math.random()*5);
+	    myY = myY - (int)(Math.random()*5);
+	}
+	//left and up
+	else if(myX > mouseX && myY > mouseY)
+	 {
+	    myX = myX - (int)(Math.random()*5);
+	    myY = myY - (int)(Math.random()*5);
+	}
+	//right and down
+	else if (myX < mouseX && myY < mouseY)
+	{
+	   	myX = myX + (int)(Math.random()*5);
+	    myY = myY + (int)(Math.random()*5);
+	}
+	//left and down
+	else if (myX > mouseX && myY < mouseY)
+	{
+	    myX = myX - (int)(Math.random()*5);
+	    myY = myY + (int)(Math.random()*5);
+	}
+	else
+	{
+	    myX = myX + (int)(Math.random()*5)-2;
+	    myY = myY + (int)(Math.random()*5)-2;
+	}
+	
+	if (keyPressed == true)
+	{
+	   	myX = (int)(Math.random()*1400);
+	    myY = (int)(Math.random()*600);
+	}
+
    }
 
    void show()
